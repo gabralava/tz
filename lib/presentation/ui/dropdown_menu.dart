@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomDropdownMenu extends StatefulWidget {
   final int selectedEmotionIndex;
-  
+
   const CustomDropdownMenu({super.key, required this.selectedEmotionIndex});
 
   @override
@@ -59,19 +59,37 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu> {
         spacing: 8.0,
         runSpacing: 4.0,
         children: dropdownEmotionList[widget.selectedEmotionIndex]!
-            .map((item) => FilterChip(
-                  label: Text(
-                    item,
-                    style: Theme.of(context).textTheme.titleMedium,
+            .map((item) => Container(
+                  decoration: const BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(182, 161, 192, 0.11),
+                        offset: Offset(2, 4),
+                        blurRadius: 10,
+                        spreadRadius: 0
+                      ),
+                    ],
                   ),
-                  selected: selectedDropdownItems[widget.selectedEmotionIndex]
-                          ?.contains(item) ??
-                      false,
-                  onSelected: (selected) {
-                    _onChipSelected(selected, item, widget.selectedEmotionIndex);
-                  },
-                  selectedColor: Theme.of(context).colorScheme.primaryContainer,
-                  showCheckmark: false,
+                  child: FilterChip(
+                    side: BorderSide.none,
+                    label: Text(item,
+                        style:
+                            selectedDropdownItems[widget.selectedEmotionIndex]
+                                        ?.contains(item) ??
+                                    false
+                                ? Theme.of(context).textTheme.bodySmall
+                                : Theme.of(context).textTheme.titleSmall),
+                    selected: selectedDropdownItems[widget.selectedEmotionIndex]
+                            ?.contains(item) ??
+                        false,
+                    onSelected: (selected) {
+                      _onChipSelected(
+                          selected, item, widget.selectedEmotionIndex);
+                    },
+                    selectedColor:
+                        Theme.of(context).colorScheme.primaryContainer,
+                    showCheckmark: false,
+                  ),
                 ))
             .toList(),
       ),

@@ -10,5 +10,6 @@ class TextThemeStyle {
     titleSmall: TextStyle(fontSize: 11, fontWeight: FontWeight.w400, color: Color.fromRGBO(76, 76, 105, 1), fontFamily: 'Nunito'),
     bodyLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color.fromRGBO(188, 188, 191, 1), fontFamily: 'Nunito'),
     bodyMedium: TextStyle(fontSize: 11, fontWeight: FontWeight.w400, color: Color.fromRGBO(188, 188, 191, 1), fontFamily: 'Nunito'),
+    bodySmall: TextStyle(fontSize: 11, fontWeight: FontWeight.w400, color: Color.fromRGBO(255, 255, 255, 1), fontFamily: 'Nunito'),
   );
 }
