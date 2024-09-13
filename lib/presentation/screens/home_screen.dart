@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tz/presentation/ui/dropdown_menu.dart';
 import 'package:tz/presentation/ui/emotion_card.dart';
 import 'package:tz/presentation/ui/note_field_card.dart';
 import 'package:tz/presentation/ui/slider_card.dart';
@@ -72,22 +73,9 @@ class _HomeScreenState extends State<HomeScreen> {
   void _onTapEmotion(int index) {
     setState(() {
       if (selectedEmotionIndex == index) {
-        selectedEmotionIndex = -1; // Скрыть меню, если та же эмоция выбрана
+        selectedEmotionIndex = -1;
       } else {
         selectedEmotionIndex = index;
-      }
-    });
-  }
-
-  void _onChipSelected(bool selected, String item, int emotionIndex) {
-    setState(() {
-      if (selected) {
-        if (!selectedDropdownItems.containsKey(emotionIndex)) {
-          selectedDropdownItems[emotionIndex] = [];
-        }
-        selectedDropdownItems[emotionIndex]!.add(item);
-      } else {
-        selectedDropdownItems[emotionIndex]?.remove(item);
       }
     });
   }
@@ -129,28 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           if (selectedEmotionIndex != -1 &&
               dropdownEmotionList.containsKey(selectedEmotionIndex))
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Wrap(
-                spacing: 8.0,
-                runSpacing: 4.0,
-                children: dropdownEmotionList[selectedEmotionIndex]!
-                    .map((item) => FilterChip(
-                          label: Text(item),
-                          selected: selectedDropdownItems[selectedEmotionIndex]
-                                  ?.contains(item) ??
-                              false,
-                          onSelected: (selected) {
-                            _onChipSelected(
-                                selected, item, selectedEmotionIndex);
-                          },
-                          selectedColor:
-                              Theme.of(context).colorScheme.primaryContainer,
-                          showCheckmark: false,
-                        ))
-                    .toList(),
-              ),
-            ),
+            CustomDropdownMenu(selectedEmotionIndex: selectedEmotionIndex),
           const SizedBox(
             height: 30,
           ),
