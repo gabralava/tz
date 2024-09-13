@@ -3,8 +3,14 @@ import 'package:flutter/material.dart';
 class SliderCard extends StatefulWidget {
   final String startName;
   final String lastName;
-  const SliderCard(
-      {super.key, required this.startName, required this.lastName});
+  final ValueChanged<bool> onSliderChanged;
+  
+  const SliderCard({
+    super.key, 
+    required this.startName, 
+    required this.lastName,
+    required this.onSliderChanged,
+  });
 
   @override
   State<SliderCard> createState() => _SliderCardState();
@@ -12,6 +18,7 @@ class SliderCard extends StatefulWidget {
 
 class _SliderCardState extends State<SliderCard> {
   double _currentSliderValue = 50;
+  bool _isSliderActive = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,27 +39,40 @@ class _SliderCardState extends State<SliderCard> {
       ),
       child: Column(
         children: [
-          Slider(
-            activeColor: Color.fromRGBO(255, 135, 2, 1),
-            inactiveColor: Color.fromRGBO(225, 221, 216, 1),
-            value: _currentSliderValue,
-            max: 100,
-            divisions: 5,
-            onChanged: (double value) {
-              setState(() {
-                _currentSliderValue = value;
-              });
-            },
+          Column(
+            children: [
+              Slider.adaptive(
+                activeColor: _isSliderActive
+                    ? const Color.fromRGBO(255, 135, 2, 1) // Оранжевый после активации
+                    : const Color.fromRGBO(225, 221, 216, 1),
+                inactiveColor: const Color.fromRGBO(225, 221, 216, 1),
+                value: _currentSliderValue,
+                max: 100,
+                divisions: 5,
+                onChanged: (double value) {
+                  setState(() {
+                    _currentSliderValue = value;
+                    _isSliderActive = true;
+                    widget.onSliderChanged(true);
+                  });
+                },
+              ),
+            ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Padding(
-              padding: const EdgeInsets.only(left: 24),
-              child: Text(widget.startName),
-            ), Padding(
-              padding: const EdgeInsets.only(right: 24),
-              child: Text(widget.lastName),
-            )],
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 24),
+                child: Text(widget.startName),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 24),
+                child: Text(
+                  widget.lastName,
+                ),
+              )
+            ],
           ),
         ],
       ),

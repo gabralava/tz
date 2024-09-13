@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class NoteFieldCard extends StatefulWidget {
-  const NoteFieldCard({super.key});
+  final ValueChanged<String> onChanged;
+
+  const NoteFieldCard({super.key, required this.onChanged});
 
   @override
   State<NoteFieldCard> createState() => _NoteFieldCardState();
@@ -9,6 +11,15 @@ class NoteFieldCard extends StatefulWidget {
 
 class _NoteFieldCardState extends State<NoteFieldCard> {
   final TextEditingController _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() {
+      widget.onChanged(_controller.text);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,10 +39,12 @@ class _NoteFieldCardState extends State<NoteFieldCard> {
       child: TextField(
         controller: _controller,
         maxLines: null,
-        decoration: const InputDecoration(
+        style: Theme.of(context).textTheme.titleMedium,
+        decoration: InputDecoration(
           hintText: 'Введите заметку',
+          hintStyle: Theme.of(context).textTheme.bodyLarge,
           border: InputBorder.none,
-          contentPadding: EdgeInsets.all(16),
+          contentPadding: const EdgeInsets.all(16),
         ),
       ),
     );
