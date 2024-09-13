@@ -55,13 +55,12 @@ class _HomeScreenState extends State<HomeScreen> {
     ]
   };
 
-  final Map<int, List<String>> selectedDropdownItems =
-      {};
+  final Map<int, List<String>> selectedDropdownItems = {};
 
   int selectedEmotionIndex = -1;
   bool isStressSliderActive = false;
   bool isConfidenceSliderActive = false;
-  String noteText = ''; 
+  String noteText = '';
 
   bool get isFormValid {
     return selectedEmotionIndex != -1 &&
@@ -145,7 +144,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             _onChipSelected(
                                 selected, item, selectedEmotionIndex);
                           },
-                          selectedColor: Color.fromRGBO(255, 135, 2, 1),
+                          selectedColor:
+                              Theme.of(context).colorScheme.primaryContainer,
                           showCheckmark: false,
                         ))
                     .toList(),
@@ -164,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SliderCard(
             startName: 'Низкий',
             lastName: 'Высокий',
-            onSliderChanged: (isActive){
+            onSliderChanged: (isActive) {
               setState(() {
                 isStressSliderActive = isActive;
               });
@@ -181,14 +181,13 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 20,
           ),
           SliderCard(
-            startName: 'Неуверенность',
-            lastName: 'Уверенность',
-            onSliderChanged: (isActive) {
-              setState(() {
-                isConfidenceSliderActive = isActive;
-              });
-            }
-          ),
+              startName: 'Неуверенность',
+              lastName: 'Уверенность',
+              onSliderChanged: (isActive) {
+                setState(() {
+                  isConfidenceSliderActive = isActive;
+                });
+              }),
           const SizedBox(
             height: 36,
           ),
@@ -199,23 +198,42 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(
             height: 20,
           ),
-          NoteFieldCard(onChanged: _updateNoteText,),
+          NoteFieldCard(
+            onChanged: _updateNoteText,
+          ),
           const SizedBox(
             height: 36,
           ),
           TextButton(
-              onPressed: (){
-                // SendData(choosedEmotions: [], stressLevel: null, selfEsteemLevel: null).sendToDataBaseData();
-                showDialog(context: context, builder: (BuildContext context) {
-                  return AlertDialog(
-                    title: Text('Отлично!', style: Theme.of(context).textTheme.titleLarge,),
-                    content: Text('Заметка успешно сохранена', style: Theme.of(context).textTheme.titleMedium,),
-                  );
-                });
-              },
-              style: TextButton.styleFrom(
-                  backgroundColor:  isFormValid ? const Color.fromRGBO(255, 135, 2, 1) : const Color.fromRGBO(242, 242, 242, 1)),
-              child: Text('Сохранить', style: TextStyle(color: isFormValid ? Colors.white : const Color.fromRGBO(188, 188, 191, 1)),)),
+            onPressed: () {
+              // SendData(choosedEmotions: [], stressLevel: null, selfEsteemLevel: null).sendToDataBaseData();
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text(
+                        'Отлично!',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      content: Text(
+                        'Заметка успешно сохранена',
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    );
+                  });
+            },
+            style: TextButton.styleFrom(
+                backgroundColor: isFormValid
+                    ? Theme.of(context).colorScheme.primaryContainer
+                    : Theme.of(context).colorScheme.secondaryContainer),
+            child: Text(
+              'Сохранить',
+              style: TextStyle(
+                  color: isFormValid
+                      ? Colors.white
+                      : Theme.of(context).colorScheme.secondaryContainer),
+            ),
+          ),
         ],
       ),
     );

@@ -29,7 +29,7 @@ class _NoteFieldCardState extends State<NoteFieldCard> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.grey.withOpacity(0.2), // Не забыть переделать
             spreadRadius: 1,
             blurRadius: 3,
             offset: const Offset(0, 2),

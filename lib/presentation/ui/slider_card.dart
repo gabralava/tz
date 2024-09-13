@@ -4,7 +4,7 @@ class SliderCard extends StatefulWidget {
   final String startName;
   final String lastName;
   final ValueChanged<bool> onSliderChanged;
-  
+
   const SliderCard({
     super.key, 
     required this.startName, 
@@ -43,9 +43,9 @@ class _SliderCardState extends State<SliderCard> {
             children: [
               Slider.adaptive(
                 activeColor: _isSliderActive
-                    ? const Color.fromRGBO(255, 135, 2, 1) // Оранжевый после активации
-                    : const Color.fromRGBO(225, 221, 216, 1),
-                inactiveColor: const Color.fromRGBO(225, 221, 216, 1),
+                    ? Theme.of(context).colorScheme.primaryContainer
+                    : Theme.of(context).colorScheme.surface,
+                inactiveColor: Theme.of(context).colorScheme.surface,
                 value: _currentSliderValue,
                 max: 100,
                 divisions: 5,
