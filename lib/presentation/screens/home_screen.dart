@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tz/presentation/ui/dropdown_menu.dart';
-import 'package:tz/presentation/ui/emotion_card.dart';
-import 'package:tz/presentation/ui/note_field_card.dart';
-import 'package:tz/presentation/ui/slider_card.dart';
+import 'package:tz/presentation/ui/home/dropdown_menu.dart';
+import 'package:tz/presentation/ui/home/emotion_card.dart';
+import 'package:tz/presentation/ui/home/note_field_card.dart';
+import 'package:tz/presentation/ui/home/slider_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Text(
             'Что чувствуешь?',
-            style: Theme.of(context).textTheme.labelLarge,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(
             height: 20,
@@ -123,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Text(
             'Уровень стресса',
-            style: Theme.of(context).textTheme.labelLarge,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(
             height: 20,
@@ -142,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Text(
             'Самооценка',
-            style: Theme.of(context).textTheme.labelLarge,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(
             height: 20,
@@ -160,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Text(
             'Заметки',
-            style: Theme.of(context).textTheme.labelLarge,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(
             height: 20,
@@ -184,7 +184,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       content: Text(
                         'Заметка успешно сохранена',
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: TextStyle(
+                            fontFamily: 'Nunito',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: Color.fromRGBO(76, 76, 105, 1)),
                       ),
                     );
                   });
@@ -195,10 +199,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     : Theme.of(context).colorScheme.secondaryContainer),
             child: Text(
               'Сохранить',
-              style: TextStyle(
-                  color: isFormValid
-                      ? Colors.white
-                      : Theme.of(context).colorScheme.secondaryContainer),
+              style: isFormValid
+                  ? TextStyle(
+                      fontFamily: 'Nunito',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white)
+                  : Theme.of(context).textTheme.displaySmall,
             ),
           ),
         ],
