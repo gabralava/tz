@@ -27,7 +27,7 @@ class TopEmotionCard extends StatelessWidget {
         children: [
           Text(
             '$place. $emotion $usage%',
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
         ],
       ),

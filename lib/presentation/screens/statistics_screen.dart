@@ -17,14 +17,14 @@ class StatisticsScreen extends StatelessWidget {
           Container(
             child: Text(
               'Сводка за неделю',
-              style: Theme.of(context).textTheme.labelLarge,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
           SizedBox(
             height: 30,
           ),
           SizedBox(
-            height: 300,
+            height: 320,
             child: GraphCard(),
           ),
           SizedBox(
@@ -32,7 +32,7 @@ class StatisticsScreen extends StatelessWidget {
           ),
           Text(
             'Самые частые эмоции',
-            style: Theme.of(context).textTheme.labelLarge,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           TopEmotionCard(place: 1, usage: 80, emotion: 'Восторг',),
           TopEmotionCard(place: 2, usage: 32, emotion: 'Очарование',),
