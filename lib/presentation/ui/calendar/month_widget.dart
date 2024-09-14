@@ -82,7 +82,7 @@ class MonthWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 22, right: 22),
+          padding: const EdgeInsets.only(left: 22, right: 22),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -100,10 +100,10 @@ class MonthWidget extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 8,),
+        const SizedBox(height: 8,),
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 16),
-          child: Container(
+          child: SizedBox(
             height: isZoomedOut ? 150 : 280,
             child: GridView.builder(
               shrinkWrap: true,

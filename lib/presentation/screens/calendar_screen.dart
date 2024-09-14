@@ -54,7 +54,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
         ],
         bottom: !isZoomedOut
             ? PreferredSize(
-                preferredSize: Size.fromHeight(52),
+                preferredSize: const Size.fromHeight(52),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 12, right: 12),
                   child: Row(
@@ -82,7 +82,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 ),
               )
             : PreferredSize(
-                preferredSize: Size.fromHeight(52),
+                preferredSize: const Size.fromHeight(52),
                 child: Center(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),

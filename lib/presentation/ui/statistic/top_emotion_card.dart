@@ -10,7 +10,7 @@ class TopEmotionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 64,
-      padding: EdgeInsets.only(left: 12),
+      padding: const EdgeInsets.only(left: 12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),

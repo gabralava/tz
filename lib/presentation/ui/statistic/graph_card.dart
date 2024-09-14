@@ -10,10 +10,10 @@ class GraphCard extends StatelessWidget {
       LineChartData(
         minY: 0, // Минимальное значение оси Y
         maxY: 100, // Максимальное значение оси Y
-        gridData: FlGridData(show: false),
+        gridData: const FlGridData(show: false),
         titlesData: FlTitlesData(
-          topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-          rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
           bottomTitles: AxisTitles(
             sideTitles: SideTitles(
               showTitles: true,
@@ -75,20 +75,20 @@ class GraphCard extends StatelessWidget {
         ),
         borderData: FlBorderData(
             show: true,
-            border: Border(
+            border: const Border(
               left: BorderSide(color: Color.fromRGBO(76, 76, 105, 1), width: 1),
               bottom: BorderSide(color: Color.fromRGBO(76, 76, 105, 1), width: 1),
             )),
         lineBarsData: [
           LineChartBarData(
               spots: [
-                FlSpot(0, 50), // Понедельник
-                FlSpot(1, 80), // Вторник
-                FlSpot(2, 40), // Среда
-                FlSpot(3, 70), // Четверг
-                FlSpot(4, 90), // Пятница
-                FlSpot(5, 30), // Суббота
-                FlSpot(6, 60), // Воскресенье
+                const FlSpot(0, 50), // Понедельник
+                const FlSpot(1, 80), // Вторник
+                const FlSpot(2, 40), // Среда
+                const FlSpot(3, 70), // Четверг
+                const FlSpot(4, 90), // Пятница
+                const FlSpot(5, 30), // Суббота
+                const FlSpot(6, 60), // Воскресенье
               ],
               isCurved: true, // Сглаженные линии
               barWidth: 4,
@@ -97,7 +97,7 @@ class GraphCard extends StatelessWidget {
                 show: true,
                 color: Theme.of(context).colorScheme.primary.withOpacity(0.11),
               ),
-              dotData: FlDotData(show: false)),
+              dotData: const FlDotData(show: false)),
         ],
       ),
     );

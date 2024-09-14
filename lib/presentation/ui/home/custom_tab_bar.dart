@@ -25,7 +25,7 @@ class CustomTabBar extends StatelessWidget {
           centerTitle: true,
           actions: [
             Padding(
-              padding: EdgeInsets.only(right: 22),
+              padding: const EdgeInsets.only(right: 22),
               child: IconButton(
                 onPressed: () {
                   Navigator.push(context,
@@ -36,10 +36,10 @@ class CustomTabBar extends StatelessWidget {
             )
           ],
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(30),
+            preferredSize: const Size.fromHeight(30),
             child: Container(
               height: 30,
-              margin: EdgeInsets.only(left: 22, right: 22),
+              margin: const EdgeInsets.only(left: 22, right: 22),
               decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.secondaryContainer,
                   borderRadius: BorderRadius.circular(48)),
@@ -51,7 +51,7 @@ class CustomTabBar extends StatelessWidget {
                   borderRadius: BorderRadius.circular(48),
                 ),
                 indicatorSize: TabBarIndicatorSize.tab,
-                labelStyle: TextStyle(fontFamily: 'Nunito', fontSize: 12, fontWeight: FontWeight.w500, color: Colors.white),
+                labelStyle: const TextStyle(fontFamily: 'Nunito', fontSize: 12, fontWeight: FontWeight.w500, color: Colors.white),
                 unselectedLabelStyle: Theme.of(context).textTheme.labelLarge,
                 tabs: [
                   Tab(
@@ -59,10 +59,10 @@ class CustomTabBar extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset('assets/icons/1.png'),
-                        SizedBox(
+                        const SizedBox(
                           width: 8,
                         ),
-                        Text(
+                        const Text(
                           'Дневник настроения',
                         )
                       ],
@@ -76,10 +76,10 @@ class CustomTabBar extends StatelessWidget {
                           'assets/icons/2.png',
                           color: Colors.white,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 8,
                         ),
-                        Text(
+                        const Text(
                           'Статистика', 
                         )
                       ],

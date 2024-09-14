@@ -77,7 +77,7 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu> {
                             selectedDropdownItems[widget.selectedEmotionIndex]
                                         ?.contains(item) ??
                                     false
-                                ? TextStyle(fontFamily: 'Nunito', fontSize: 11, fontWeight: FontWeight.w400, color: Colors.white)
+                                ? const TextStyle(fontFamily: 'Nunito', fontSize: 11, fontWeight: FontWeight.w400, color: Colors.white)
                                 : Theme.of(context).textTheme.labelMedium),
                     selected: selectedDropdownItems[widget.selectedEmotionIndex]
                             ?.contains(item) ??

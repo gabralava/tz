@@ -182,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         'Отлично!',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      content: Text(
+                      content: const Text(
                         'Заметка успешно сохранена',
                         style: TextStyle(
                             fontFamily: 'Nunito',
@@ -200,7 +200,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text(
               'Сохранить',
               style: isFormValid
-                  ? TextStyle(
+                  ? const TextStyle(
                       fontFamily: 'Nunito',
                       fontSize: 20,
                       fontWeight: FontWeight.w400,

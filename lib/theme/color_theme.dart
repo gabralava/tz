@@ -4,7 +4,7 @@ import 'package:tz/theme/text_theme.dart';
 class ThemeDataStyle {
   static ThemeData light = ThemeData(
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
     ),
     colorScheme: const ColorScheme.light(
