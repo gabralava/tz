@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tz/presentation/screens/calendar_screen.dart';
 import 'package:tz/presentation/screens/home_screen.dart';
 import 'package:tz/presentation/screens/statistics_screen.dart';
+import 'package:tz/service/check_time.dart';
 import 'package:tz/service/date_convert.dart';
 
 class CustomTabBar extends StatelessWidget {
@@ -12,12 +14,27 @@ class CustomTabBar extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            convertDate(),
-            style: Theme.of(context).textTheme.headlineLarge,
+          // Создаем поток, в котором проверяем изменилось ли время
+          title: StreamBuilder(
+            stream: timeStream(),
+            initialData: convertDate(),
+            builder: (context, snapshot){
+              return Text(snapshot.data ?? '', style: Theme.of(context).textTheme.headlineLarge,);
+            }
           ),
           centerTitle: true,
-          actions: const [Icon(Icons.calendar_month)],
+          actions: [
+            Padding(
+              padding: EdgeInsets.only(right: 22),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const CalendarScreen()));
+                },
+                icon: Icon(Icons.calendar_month, size: 24, color: Theme.of(context).colorScheme.secondary,),
+              ),
+            )
+          ],
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(30),
             child: Container(
@@ -42,7 +59,9 @@ class CustomTabBar extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset('assets/icons/1.png'),
-                        SizedBox(width: 8,),
+                        SizedBox(
+                          width: 8,
+                        ),
                         Text(
                           'Дневник настроения',
                         )
@@ -53,9 +72,16 @@ class CustomTabBar extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('assets/icons/2.png', color: Colors.white,),
-                        SizedBox(width: 8,),
-                        Text('Статистика',)
+                        Image.asset(
+                          'assets/icons/2.png',
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          'Статистика',
+                        )
                       ],
                     ),
                   )
