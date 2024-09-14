@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tz/presentation/ui/month_widget.dart';
+import 'package:tz/presentation/ui/calendar/month_widget.dart';
 
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({super.key});
@@ -17,9 +17,11 @@ class _CalendarScreenState extends State<CalendarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.close,
-          color: Theme.of(context).colorScheme.secondary,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.close, color: Theme.of(context).colorScheme.secondary,),
         ),
         actions: [
           IconButton(
@@ -46,7 +48,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
             child: Padding(
               padding: const EdgeInsets.only(right: 10),
               child: Text('Сегодня',
-                  style: Theme.of(context).textTheme.displayLarge),
+                  style: Theme.of(context).textTheme.headlineMedium),
             ),
           ),
         ],
@@ -70,7 +72,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                                 alignment: Alignment.center,
                                 child: Text(
                                   convertIntToWeekday(index),
-                                  style: Theme.of(context).textTheme.labelSmall,
+                                  style: Theme.of(context).textTheme.bodySmall,
                                 ),
                               );
                             }),
@@ -86,7 +88,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     child: Text(
                       DateTime.now().year.toString(),
-                      style: Theme.of(context).textTheme.labelLarge,
+                      style: Theme.of(context).textTheme.displayLarge,
                     ),
                   ),
                 ),
