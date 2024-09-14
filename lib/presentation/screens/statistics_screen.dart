@@ -14,11 +14,9 @@ class StatisticsScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Container(
-            child: Text(
-              'Сводка за неделю',
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
+          Text(
+            'Сводка за неделю',
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(
             height: 30,
@@ -34,9 +32,21 @@ class StatisticsScreen extends StatelessWidget {
             'Самые частые эмоции',
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          const TopEmotionCard(place: 1, usage: 80, emotion: 'Восторг',),
-          const TopEmotionCard(place: 2, usage: 32, emotion: 'Очарование',),
-          const TopEmotionCard(place: 3, usage: 11, emotion: 'Грусть',),
+          const TopEmotionCard(
+            place: 1,
+            usage: 80,
+            emotion: 'Восторг',
+          ),
+          const TopEmotionCard(
+            place: 2,
+            usage: 32,
+            emotion: 'Очарование',
+          ),
+          const TopEmotionCard(
+            place: 3,
+            usage: 11,
+            emotion: 'Грусть',
+          ),
         ],
       ),
     );
