@@ -39,10 +39,10 @@ class _NoteFieldCardState extends State<NoteFieldCard> {
       child: TextField(
         controller: _controller,
         maxLines: null,
-        style: Theme.of(context).textTheme.titleMedium,
+        style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w400, fontSize: 14, color: Color.fromRGBO(76, 76, 105, 1)),
         decoration: InputDecoration(
           hintText: 'Введите заметку',
-          hintStyle: Theme.of(context).textTheme.bodyLarge,
+          hintStyle: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w400, fontSize: 14, color: Color.fromRGBO(188, 188, 191, 1)),
           border: InputBorder.none,
           contentPadding: const EdgeInsets.all(16),
         ),

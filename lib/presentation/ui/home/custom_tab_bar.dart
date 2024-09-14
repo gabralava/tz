@@ -51,8 +51,8 @@ class CustomTabBar extends StatelessWidget {
                   borderRadius: BorderRadius.circular(48),
                 ),
                 indicatorSize: TabBarIndicatorSize.tab,
-                labelStyle: Theme.of(context).textTheme.labelMedium,
-                unselectedLabelStyle: Theme.of(context).textTheme.labelSmall,
+                labelStyle: TextStyle(fontFamily: 'Nunito', fontSize: 12, fontWeight: FontWeight.w500, color: Colors.white),
+                unselectedLabelStyle: Theme.of(context).textTheme.labelLarge,
                 tabs: [
                   Tab(
                     child: Row(
@@ -80,7 +80,7 @@ class CustomTabBar extends StatelessWidget {
                           width: 8,
                         ),
                         Text(
-                          'Статистика',
+                          'Статистика', 
                         )
                       ],
                     ),

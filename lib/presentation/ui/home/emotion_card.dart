@@ -48,7 +48,7 @@ class EmotionCard extends StatelessWidget {
                   Image.asset(imagePath),
                   Text(
                     emotionStatus.substring(14).replaceAll('.png', ''),
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
               ),

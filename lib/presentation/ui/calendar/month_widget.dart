@@ -59,8 +59,8 @@ class MonthWidget extends StatelessWidget {
                 ),
                 child: Text('$i',
                     style: isZoomedOut
-                        ? Theme.of(context).textTheme.displaySmall
-                        : Theme.of(context).textTheme.headlineMedium),
+                        ? Theme.of(context).textTheme.bodyMedium
+                        : Theme.of(context).textTheme.headlineSmall),
               ),
               if (isToday && !isZoomedOut)
                 Container(
@@ -89,13 +89,13 @@ class MonthWidget extends StatelessWidget {
               !isZoomedOut ?
               Text(
                 DateFormat('y', 'ru').format(DateTime(year, currentMonth)),
-                style: Theme.of(context).textTheme.headlineSmall,
+                style: Theme.of(context).textTheme.titleMedium,
               ) : Container(),
               Text(
                 capitalize(DateFormat('MMMM', 'ru').format(DateTime(year, currentMonth))),
                 style: isZoomedOut
-                    ? Theme.of(context).textTheme.displayMedium
-                    : Theme.of(context).textTheme.labelLarge,
+                    ? Theme.of(context).textTheme.titleSmall
+                    : Theme.of(context).textTheme.displayMedium,
               ),
             ],
           ),

@@ -64,12 +64,12 @@ class _SliderCardState extends State<SliderCard> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 24),
-                child: Text(widget.startName),
+                child: Text(widget.startName, style: _isSliderActive ? Theme.of(context).textTheme.bodyLarge : Theme.of(context).textTheme.labelSmall,),
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 24),
                 child: Text(
-                  widget.lastName,
+                  widget.lastName, style: _isSliderActive ? Theme.of(context).textTheme.bodyLarge : Theme.of(context).textTheme.labelSmall,
                 ),
               )
             ],
