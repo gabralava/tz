@@ -21,7 +21,10 @@ class _CalendarScreenState extends State<CalendarScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.close, color: Theme.of(context).colorScheme.secondary,),
+          icon: Icon(
+            Icons.close,
+            color: Theme.of(context).colorScheme.secondary,
+          ),
         ),
         actions: [
           IconButton(
@@ -94,26 +97,24 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 ),
               ),
       ),
-      body: Expanded(
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: isZoomedOut ? 2 : 1),
-          itemCount: 12,
-          itemBuilder: (context, index) {
-            return MonthWidget(
-              currentMonth: index + 1,
-              selectedDate: selectedDate,
-              onDateSelected: (date) {
-                setState(
-                  () {
-                    selectedDate = date;
-                  },
-                );
-              },
-              isZoomedOut: isZoomedOut,
-            );
-          },
-        ),
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: isZoomedOut ? 2 : 1),
+        itemCount: 12,
+        itemBuilder: (context, index) {
+          return MonthWidget(
+            currentMonth: index + 1,
+            selectedDate: selectedDate,
+            onDateSelected: (date) {
+              setState(
+                () {
+                  selectedDate = date;
+                },
+              );
+            },
+            isZoomedOut: isZoomedOut,
+          );
+        },
       ),
     );
   }
