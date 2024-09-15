@@ -179,12 +179,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   builder: (BuildContext context) {
                     return AlertDialog(
                       title: Text(
-                        'Отлично!',
+                        isFormValid ? 
+                        'Отлично!' : 'Ошибка!',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      content: const Text(
-                        'Заметка успешно сохранена',
-                        style: TextStyle(
+                      content: Text(
+                        isFormValid ? 
+                        'Заметка успешно сохранена' : 'Заполните все поля',
+                        style: const TextStyle(
                             fontFamily: 'Nunito',
                             fontWeight: FontWeight.w400,
                             fontSize: 14,
