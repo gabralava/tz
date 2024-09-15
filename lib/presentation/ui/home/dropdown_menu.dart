@@ -1,55 +1,22 @@
 import 'package:flutter/material.dart';
 
 class CustomDropdownMenu extends StatefulWidget {
+  final Map<int, List<String>> dropdownEmotionList;
   final int selectedEmotionIndex;
 
-  const CustomDropdownMenu({super.key, required this.selectedEmotionIndex});
+  const CustomDropdownMenu({super.key, required this.selectedEmotionIndex, required this.dropdownEmotionList});
 
   @override
   State<CustomDropdownMenu> createState() => _CustomDropdownMenuState();
 }
 
 class _CustomDropdownMenuState extends State<CustomDropdownMenu> {
-  final Map<int, List<String>> dropdownEmotionList = {
-    0: [
-      "Возбуждение",
-      "Восторг",
-      "Игривость",
-      "Наслаждение",
-      "Очарование",
-      "Осознанность",
-      "Смелость",
-      "Чувственность",
-      "Энергичность",
-      "Экстравагантность",
-    ],
-    1: [
-      "Тревога",
-      "Паника",
-      "Невроз",
-    ],
-    2: [
-      "Гнев",
-      "Раздражение",
-      "Ярость",
-    ],
-    3: [
-      "Грусть",
-      "Скорбь",
-      "Одиночество",
-    ],
-    4: [
-      "Сила",
-      "Твердость",
-      "Мужественность",
-    ]
-  };
 
   final Map<int, List<String>> selectedDropdownItems = {};
 
   @override
   Widget build(BuildContext context) {
-    if (!dropdownEmotionList.containsKey(widget.selectedEmotionIndex)) {
+    if (!widget.dropdownEmotionList.containsKey(widget.selectedEmotionIndex)) {
       return const SizedBox();
     }
 
@@ -58,7 +25,7 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu> {
       child: Wrap(
         spacing: 8.0,
         runSpacing: 4.0,
-        children: dropdownEmotionList[widget.selectedEmotionIndex]!
+        children: widget.dropdownEmotionList[widget.selectedEmotionIndex]!
             .map((item) => Container(
                   decoration: const BoxDecoration(
                     boxShadow: [

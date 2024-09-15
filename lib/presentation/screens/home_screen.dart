@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           if (selectedEmotionIndex != -1 &&
               dropdownEmotionList.containsKey(selectedEmotionIndex))
-            CustomDropdownMenu(selectedEmotionIndex: selectedEmotionIndex),
+            CustomDropdownMenu(selectedEmotionIndex: selectedEmotionIndex, dropdownEmotionList: dropdownEmotionList,),
           const SizedBox(
             height: 30,
           ),
